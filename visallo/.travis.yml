@@ -1,0 +1,24 @@
+addons:
+  apt:
+    packages:
+      - python
+sudo: false
+language: java
+jdk:
+  - oraclejdk8
+node_js: "6"
+cache:
+  directories:
+    - $HOME/.npm
+    - $HOME/.yarn-cache
+    - $HOME/awscli-bundle
+env:
+  - CC=clang CXX=clang++
+  - BUILD_DOCS=1 VERSION_LIST="release-3.1 master" VERSION_ROOT="release-3.1" 
+install: ./travis/install.sh
+script: ./travis/script.sh
+after_success: ./travis/after-success.sh
+branches:
+  only:
+    - master
+    - /^release-.*$/

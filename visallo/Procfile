@@ -1,0 +1,2 @@
+##web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar web/war/target/visallo-web-war-3.2-SNAPSHOT.war --port 8888
+web: ./mvnw -am -pl dev/tomcat-server -P dev-tomcat-run compile -Dhttp.port=$PORT

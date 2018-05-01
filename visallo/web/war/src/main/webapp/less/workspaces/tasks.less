@@ -1,0 +1,174 @@
+.tasks-svg {
+  .left-movement {
+    cursor: pointer;
+    width: 5px;
+    height: 200px;
+    display: table;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    background: #777777;
+    background: -moz-linear-gradient(left, #4f4f4f 0%, #777777 100%);
+    background: -webkit-linear-gradient(left, #4f4f4f 0%, #777777 100%);
+    background: linear-gradient(to right, #4f4f4f 0%, #777777 100%);
+    box-shadow: 3px 0px 5px 0px #2f2f2f;
+    i {
+      margin-top: 93px;
+      margin-right: 3px;
+    }
+    &:hover {
+      box-shadow: 5px 0px 5px 0px #2f2f2f;
+    }
+  }
+  .right-movement {
+    cursor: pointer;
+    width: 5px;
+    height: 200px;
+    display: table;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background: #777777;
+    background: -moz-linear-gradient(left, #777777 0%, #4f4f4f 100%);
+    background: -webkit-linear-gradient(left, #777777 0%,#4f4f4f 100%);
+    background: linear-gradient(to right, #777777 0%,#4f4f4f 100%);
+    box-shadow: -3px 0px 5px 0px #2f2f2f;
+    i {
+      margin-top: 93px;
+      margin-left: 3px;
+    }
+    &:hover {
+      box-shadow: -5px 0px 5px 0px #2f2f2f;
+    }
+  }
+
+  .zoom-bar {
+    position: absolute;
+    bottom: 10px;
+    width: ~"calc(100% - 20px)";
+    padding: 0 10px;
+    .line {
+      position: absolute;
+      bottom: 11px;
+      width: 100%;
+      border-top: 2px solid #f8f9f9;
+      z-index: -1;
+    }
+    .zoom-icons {
+      text-align: center;
+      width: 120px;
+      margin: auto;
+      border: 2px solid #f8f9f9;
+      border-radius: 20px;
+      background-color: #4f4f4f;
+      color: #f8f9f9;
+      .zoom-plus {
+        float: left;
+        margin-left: 10px;
+        cursor: pointer;
+        padding: 0;
+        background: transparent;
+        &:hover {
+          color: #f8f9f9;
+        }
+      }
+      .zoom-zero {
+        cursor: pointer;
+        padding: 0;
+        background: transparent;
+        &:hover {
+          color: #f8f9f9;
+        }
+      }
+      .zoom-minus {
+        float: right;
+        margin-right: 10px;
+        cursor: pointer;
+        padding: 0;
+        background: transparent;
+        &:hover {
+          color: #f8f9f9;
+        }
+      }
+    }
+  }
+
+  //------------For Timeline related components----------------
+  .main-time-line-view {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background: white;
+    width: calc(~"100% - 70px");
+    height: 220px;
+    border-radius: 20px;
+    svg {
+      margin : 0;
+      margin-top: 10px;
+    }
+  }
+
+
+  .timeline-connector-line {
+    stroke: #555555;
+  }
+
+  .timeline-connector-line {
+    stroke: #555555;
+  }
+
+  .timeline-circle-done-outer {
+    fill: #938b7e;
+    stroke: #555555;
+  }
+
+  .timeline-circle-done-inner {
+    fill: none;
+    stroke: #a8a294;
+  }
+
+  .timeline-circle-done-text {
+    font-size: 1.2em;
+    font-weight: bolder;
+    fill: #f2f2f2;
+  }
+
+  .timeline-circle-inprogress-outer {
+    fill: none;
+    stroke: #555555;
+  }
+
+  .timeline-circle-inprogress-inner {
+    fill: none;
+    stroke: #bcbcbc;
+  }
+
+  .timeline-circle-inprogress-text {
+    font-size: 1.2em;
+    font-weight: bolder;
+    fill: #555555;
+  }
+
+  .timeline-circle-coming-outer {
+    fill: none;
+    stroke: grey;
+  }
+
+  .timeline-circle-coming-inner {
+    fill: none;
+    stroke: lightgrey;
+  }
+
+  .timeline-circle-coming-text {
+    font-size: 1.2em;
+    font-weight: bolder;
+    fill: lightgrey;
+  }
+
+  .circle-progress {
+    fill: none;
+    stroke: #E05127;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

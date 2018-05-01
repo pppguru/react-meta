@@ -1,0 +1,20 @@
+
+.user-admin .nav-header {
+    padding-left: 0;
+}
+
+.user-admin ul {
+    list-style: none;
+    margin-left: 8px;
+}
+
+.user-admin ul li label.nav-header {
+    display: inline;
+    margin-right: -10px;
+}
+
+.user-admin .alert.alert-error button.close {
+    display: inline;
+    width: auto;
+    margin: 0;
+}

@@ -1,0 +1,362 @@
+@import (reference) "../util/animation";
+
+@menuIconHeight: 20px;
+
+background: @menubar-background;
+
+.user-select(none);
+
+div.divider-out {
+  width: 85%;
+  margin: auto;
+  background-color: #525252;
+  height: 2px;
+  -webkit-box-shadow: 0 2px 4px 1px #1d1d1d;
+  -moz-box-shadow: 0 2px 4px 1px #1d1d1d;
+  box-shadow: 0 2px 4px 1px #1d1d1d;
+}
+
+div.divider-in {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #555;
+  width: 85%;
+  margin: auto;
+  height: 0px;
+}
+
+.menu-avatar {
+  margin: 5px;
+  @media (min-width: 769px) {
+    margin: 20px;
+  }
+  div {
+    display: inline-block;
+    border: 1px solid #787878;
+    box-shadow: 1px 1px #191919;
+    img {
+      width: 45px;
+    }
+  }
+
+  p {
+    vertical-align: middle;
+    margin: 0 0 0 10px;
+    color: white;
+    font-family: "HelveticaNeue-CondensedBold", helvetica, arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    display: none;
+    @media (min-width: 769px) {
+      display: inline-block;
+    }
+  }
+}
+
+.menu-top, .menu-bottom {
+  margin: 5px;
+  padding: 0;
+  list-style: none;
+
+  a {
+    background: transparent;
+    background-size: auto @menuIconHeight;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    color: white;
+    cursor: pointer;
+    display: block;    
+    font-size: 70%;
+    margin: 2px 0;
+    opacity: 0.5;
+    padding-top: 25px;
+    padding-bottom: 5px;
+    text-align: center;    
+    text-decoration: none;
+
+    .transition(opacity 0.2s ease-in-out);
+  }
+
+  p {
+    font-family: "HelveticaNeue-CondensedBold", helvetica, arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #787878;
+    display: none;
+    line-height: 50px;
+    vertical-align: top;
+    margin: 5px 10px;
+    cursor: pointer;
+    @media (min-width: 769px) {
+      display: inline-block;
+    }
+  }
+
+  .activity, .logout {
+    background-position: center;    
+    
+    a {
+      font-size: 0;
+      padding: 5px 0;
+      height: @menuIconHeight;
+    }
+  }
+
+  li.active-aux a, li.active-aux p {
+    opacity: 0.9;
+    color: white;
+  }
+  li.active a, li.active p {
+    opacity: 0.9;
+    color: white;
+  }
+
+  li.spacer {
+    height: 0.5em;
+    display: block;
+  }
+}
+
+.menu-top {
+  @media (min-width: 769px) {
+    margin-left: 40px;
+  }
+  li div {
+    border-radius: 50%;
+    border: 1px solid #787878;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px #191919;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    a {
+      width: 18px;
+      height: 45px;
+      margin: auto;
+      background-size: 100%;
+      background-position-y: center;
+    }
+  }
+
+  .dashboard a {
+    background-image: url(../img/Images/dashboard_icon.svg);
+  }
+
+  .current-prospect a {
+    background-image: url(../img/Images/currentcases_icon.svg);
+  }
+
+  .prospects a {
+    background-image: url(../img/Images/allcases_icon.svg);
+  }
+
+  .inbox a {
+    background-image: url(../img/Images/inbox_icon.svg);
+  }
+
+  .calendar a {
+    background-image: url(../img/Images/calendar_icon.svg);
+  }
+
+  .assistance a {
+    background-image: url(../img/Images/assistance_icon.svg);
+  }
+
+  .workspaces a {
+    background-image: url(../img/white_glyphicons_341_briefcase@2x_no_gray.png);
+  }
+  
+  .products a {
+    background-image: url(../img/glyphicons/white/glyphicons_330_blog@2x.png);
+  }
+  .products.active a {
+    background-image: url(../img/glyphicons/white/glyphicons_330_blog-lines@2x.png);
+  }
+
+  .admin a {
+    background-image: url(../img/glyphicons/white/glyphicons_439_wrench@2x.png);
+  }
+
+  .graph a {
+    background-image: url(../img/glyphicons/white/glyphicons_326_share@2x.png);
+  }
+
+  .tooltip-inner .subtitle {
+    margin-left: 0.5em;
+    color: #ccc;
+    white-space: nowrap;
+    font-size: 90%;
+  }
+
+  .map a { 
+    background-image: url(../img/glyphicons/white/glyphicons_242_google_maps@2x.png);
+    background-size: auto 23px;
+  }
+
+  .search a { 
+    background-image: url(../img/glyphicons/white/glyphicons_027_search@2x.png);
+  }
+
+  .metrics a { background-image: url(../img/glyphicons/white/glyphicons_041_charts@2x.png); }
+  .prefs a { background-image: url(../img/glyphicons/white/glyphicons_280_settings@2x.png); }
+
+  // Activity is special in that it animates when active
+  .activity { 
+    position: relative;
+
+    a {
+      opacity: 1;
+
+      &:before {
+        .spinning-image('white/glyphicons_019_cogwheel@2x', 18px, -4px, -4px);
+        .spin(4s, forward);
+        opacity: .5;
+      }
+
+      &:after {
+        .spinning-image('white/glyphicons_019_cogwheel@2x', 14px, 6px, 6px);
+        .spin(4s, reverse);
+        opacity: .5;
+      }
+    }
+
+    &.active a {
+      &:before, &:after {
+        opacity: 1;
+      }
+    }
+
+    .activityCount {
+      display: block;
+      background: #ccc;      
+      box-shadow: 0 1px 1px fadeOut(black, 50%);
+      @size: 1em;
+      width: @size;
+      height: @size;
+      line-height: @size;      
+      text-align: center;
+      padding: 0.5ex;      
+      position: absolute;
+      top: -0.9ex;
+      right: -0.7ex;
+      color: #777;
+      font-size: 85%;   
+      font-variant: small-caps;
+      font-weight: bold;     
+      border-radius: @size;
+      text-shadow: 0 1px 0px white;
+      .disable-text-selection;
+      cursor: pointer;
+    }
+
+    &.animating a:before {
+      .animation-play-state(running);
+    }
+    &.animating a:after { 
+      .animation-play-state(running);
+    }
+  }
+
+  .logout {
+    a {
+      background-image: url(../img/glyphicons/white/glyphicons_387_log_out@2x.png);
+      background-size: 22px auto;
+      background-position: 9px center;
+    }
+  }
+}
+
+
+.menu-bottom {
+  @media (min-width: 769px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  li {
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 77%, rgba(255,255,255,0.1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 77%,rgba(255,255,255,0.1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 77%,rgba(255,255,255,0.1) 100%);
+    -webkit-box-shadow: 0px 6px 5px -2px #292929;
+    -moz-box-shadow: 0px 6px 5px -2px #292929;
+    box-shadow: 0px 6px 5px -2px #292929;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    @media (min-width: 769px) {
+      width: 32%;
+      height: 95px;
+    }
+    a {
+      background-size: 50px 35px;
+      padding-bottom: 20px;
+      margin-top: 10px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      display: none;
+      @media (min-width: 769px) {
+        display: block;
+      }
+    }
+  }
+
+  .share-practice a {
+    background-image: url(../img/Images/shareapractice_icon.svg);
+  }
+
+  .ideas a {
+    background-image: url(../img/Images/ideas_icon.svg);
+  }
+
+  .policies a {
+    background-image: url(../img/Images/policies_icon.svg);
+  }
+
+  .training a {
+    background-image: url(../img/Images/training_icon.svg);
+  }
+
+  .resources a {
+    background-image: url(../img/Images/resources_icon.svg);
+  }
+
+  .consult a {
+    background-image: url(../img/Images/consult_icon.svg);
+  }
+}
+
+.spinning-image(@image, @dimension, @offsetLeft, @offsetTop) {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: @dimension / 2 * -1px + @offsetLeft;
+  margin-top: @dimension / 2 * -1px + @offsetTop;
+  width: @dimension;
+  height: @dimension;
+  background-image: url("../img/glyphicons/@{image}.png");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content {
+  &.hide-icon-text {
+    .menu-top a, .menu-bottom a {
+      font-size: 0;
+      height: @menuIconHeight;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+  }
+  &.hide-more {
+    .menu-bottom .divider, .menu-bottom .logout, .menu-bottom .spacer {
+        display: none;        
+    }
+  }
+}
